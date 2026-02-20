@@ -12,7 +12,7 @@ This Action utlizes the `gluon-build` docker container.
 Container version to use
 
 #### Default
-master
+main
 
 
 ### gluon-path

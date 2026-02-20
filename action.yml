@@ -4,7 +4,7 @@ description: "Build Gluon images using the build-gluon docker container"
 inputs:
   container-version:
     description: 'Container version to use'
-    default: 'master'
+    default: 'main'
   gluon-path:
     description: 'Path to Gluon repository'
     required: true
