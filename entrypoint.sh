@@ -4,6 +4,14 @@ set -euxo pipefail
 
 BUILD_THREADS="$(($(nproc) + 1))"
 
+if [ "$ACTION_GLUON_BROKEN" -eq 1 ]; then
+    ACTION_GLUON_BROKEN=1
+else
+    # Mapping is neccesary so that it works with and without the following patch:
+    # https://github.com/freifunk-gluon/gluon/pull/2934
+    ACTION_GLUON_BROKEN=""
+fi
+
 # Determine Gluon Make args
 GLUON_MAKE_ARGS=""
 [ -n "${ACTION_GLUON_AUTOREMOVE+x}" ] && GLUON_MAKE_ARGS="${GLUON_MAKE_ARGS} GLUON_AUTOREMOVE=${ACTION_GLUON_AUTOREMOVE}"
