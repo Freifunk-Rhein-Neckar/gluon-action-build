@@ -1,14 +1,15 @@
 ---
 name: Build Docker Image
 
+# yamllint disable-line rule:truthy
 on: [push, pull_request]
 
 jobs:
   build-docker:
     name: "Build Docker Image"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build Docker Image
         run: |
           docker build \
@@ -18,5 +19,5 @@ jobs:
             .
         env:
           # Utilize matrix with release-versions once available
-          VERSION: master
+          VERSION: main
         shell: bash
